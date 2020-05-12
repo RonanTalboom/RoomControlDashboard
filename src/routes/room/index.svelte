@@ -1,0 +1,44 @@
+<script context="module">
+	export function preload({ params, query }) {
+		return this.fetch(`room.json`).then(r => r.json()).then(rooms => {
+			return { rooms };
+		});
+	}
+</script>
+
+<script>
+	export let rooms;
+</script>
+
+<style>
+	ul {
+		margin: 0 0 1em 0;
+		line-height: 1.5;
+	}
+</style>
+
+<svelte:head>
+	<title>Rooms</title>
+</svelte:head>
+
+<h1>Rooms</h1>
+
+<ul>
+	{#each rooms as room}
+		<!-- we're using the non-standard `rel=prefetch` attribute to
+				tell Sapper to load the data for the page as soon as
+				the user hovers over the link or taps it, instead of
+				waiting for the 'click' event -->
+		<li><a rel='prefetch' href='room/{room.slug}'>{room.title}</a></li>
+	{/each}
+</ul>
+<h1>Small Rooms</h1>
+<ul>
+	{#each rooms as room}
+		<!-- we're using the non-standard `rel=prefetch` attribute to
+				tell Sapper to load the data for the page as soon as
+				the user hovers over the link or taps it, instead of
+				waiting for the 'click' event -->
+		<li><a rel='prefetch' href='room/{room.slug}'>{room.title}</a></li>
+	{/each}
+</ul>
