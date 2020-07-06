@@ -1,5 +1,5 @@
 <style>
-	h1, figure, p {
+	h1, figure{
 		text-align: center;
 		margin: 0 auto;
 	}
@@ -9,6 +9,13 @@
 		text-transform: uppercase;
 		font-weight: 700;
 		margin: 0 0 0.5em 0;
+		color: rgb(0,98,139);
+	}
+	h2 {
+		font-weight: 700;
+		text-transform: uppercase;
+		margin: 0 0 0.5em 0;
+		color: rgb(0,98,139);
 	}
 
 	figure {
@@ -33,14 +40,13 @@
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Room control</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>Room control</h1>
+<h2>Project tijdens covid-19</h2>
+<p>We zijn dit project gestart om tijdens de tijd van covid-19 te helpen bij het inzicht krijgen in ruimtes. Door dit inzicht kan ons project worden in gezet bij het veilig houden van openbare ruimtes. We kunnen met ons project in kaart brengen hoeveel mensen er in een ruimte zitten, of deze genoeg oppervlakte hebben om veilig in de ruimte te verblijven en zo het besmettings gevaar inperken. </p>
+<h2>Post covid-19</h2>
+<p>Na de tijd van covid-19 kan het project gebruikt worden om inzicht te krijgen in het gebruik van de hogeschool resources. 
+Zo kan je bijhouden of er in een ruimte nog plek is en of alle ruimtes wel optimaal worden benut.</p>
 
-<figure>
-	<img alt='Success Kid' src='successkid.jpg'>
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>

@@ -18,38 +18,56 @@
 </script>
 
 <style>
-	/*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{post.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
-	.content :global(h2) {
-		font-size: 1.4em;
-		font-weight: 500;
-	}
+    /* display the items as squares in a grid */
+    main {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, 150px);
+        grid-auto-rows: 150px;
+        grid-gap: 2rem;
+    }
+    /* display the text elements in a column */
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: hsla(240, 25%, 50%, 0.1);
+        border: 5px solid currentColor;
+        border-radius: 25px;
+        position: relative;
 
-	.content :global(pre) {
-		background-color: #f9f9f9;
-		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
-		padding: 0.5em;
-		border-radius: 2px;
-		overflow-x: auto;
+    }
+    article h2 {
+        font-weight: 400;
+        font-size: .725rem;
+		text-decoration: none;
+    }
+    article p {
+        font-size: 2.0rem;
+        font-weight: 700;
+    }
+    /* absolute position the button in the top right corner */
+    article button {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        transform: translate(50%, -50%);
+        background: none;
+        border: none;
+        border-radius: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: inherit;
+        background: currentColor;
+        /* use the same hue as the background to fake a clip on the border underneath */
+        box-shadow: 0 0 0 0.5rem hsl(240, 25%, 20%);
+    }
+	.green {
+		 border: 5px solid rgb(0, 128, 89); 
 	}
-
-	.content :global(pre) :global(code) {
-		background-color: transparent;
-		padding: 0;
-	}
-
-	.content :global(ul) {
-		line-height: 1.5;
-	}
-
-	.content :global(li) {
-		margin: 0 0 0.5em 0;
+	.red {
+		 border: 5px solid rgb(225, 87, 89); 
 	}
 </style>
 
@@ -57,8 +75,20 @@
 	<title>{room.title}</title>
 </svelte:head>
 
-<h1>{room.title}</h1>
+<h1>{room.title} information</h1>
 
-<div class='content'>
-	{room.title}
-</div>
+<main>
+	<article>
+		<h2>Average Occupation</h2>
+        <p>{room.amount}</p>
+	</article>
+	<article class="{room.full ? 'red' : 'green'}">
+		<h2>Current Occupation</h2>
+        <p>{room.amount}</p>
+	</article>
+    <article>
+		<h2>Room Surface</h2>
+        <p>30m2</p>
+	</article>
+</main>
+

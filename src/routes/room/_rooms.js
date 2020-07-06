@@ -9,28 +9,38 @@
 
 const rooms = [
     {
-		title: 'Room1',
-		slug: 'Room1'
+		title: 'L4.52',
+		full: false,
+		slug: 'L4.52',
+		amount: 5,
 	},
 
 	{
-		title: 'Room2',
-		slug: 'Room2'
+		title: 'Z1.54',
+		full: false,
+		slug: 'Z1.54',
+		amount: 20,
 	},
 
 	{
-		title: 'Room3',
-		slug: 'Room3'
+		title: 'K7.1',
+		full: false,
+		slug: 'K7.1',
+		amount: 20,
 	},
 
 	{
-		title: 'Room4',
-		slug: 'Room4'
+		title: 'K7.12',
+		full: false,
+		slug: 'K7.12',
+		amount: 20,
 	},
 
 	{
-		title: 'Room5',
-		slug: 'Room5'
+		title: 'k4.56',
+		full: true,
+		slug: 'K4.56',
+		amount: 10,
 	}
 ];
 
