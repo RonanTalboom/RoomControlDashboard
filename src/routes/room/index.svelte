@@ -1,14 +1,30 @@
 <script context="module">
 	export function preload({ params, query }) {
-		return this.fetch(`room.json`).then(r => r.json()).then(rooms => {
-			return { rooms };
-		});
+        const URL = 'http://85.159.215.21/listrooms';
+        return this.fetch(`http://85.159.215.21/listrooms`, {
+        method: "GET",
+        mode: 'cors'
+        })
+        .then(res => res.json()).then(data => {
+            
+             const rooms = JSON.stringify(data.map(room => {
+                return {
+                    title: room,
+                    full: true,
+                    slug: room
+                };
+            }));
+            return { rooms };
+        })
+        .catch(err => {
+            console.log(err);
+        })
 	}
 </script>
 
 <script>
-	export let rooms;
-	console.log(rooms);
+    export let rooms;
+    console.log(rooms);
 </script>
 
 <style>
@@ -78,6 +94,7 @@
 
 <h1>Rooms</h1>
 <main>
+{console.log(rooms)}
 	{#each rooms as room (room.title)}
 		<article class="{room.full ? 'red' : 'green'}">
             <a rel='prefetch' href='room/{room.slug}'>{room.title}</a>
